@@ -4,6 +4,7 @@ import EventHandler from '../../src/dom/event-handler'
 /** Test helpers */
 import { clearFixture, createEvent, getFixture, jQueryMock } from '../helpers/fixture'
 import * as util from '../../src/util'
+import Swipe from '../../src/util/swipe'
 
 describe('Carousel', () => {
   const { Simulator, PointerEvent } = window
@@ -310,10 +311,10 @@ describe('Carousel', () => {
       fixtureEl.innerHTML = '<div></div>'
 
       const carouselEl = fixtureEl.querySelector('div')
-      const carousel = new Carousel(carouselEl)
+      spyOn(Swipe, 'isSupported').and.returnValue(false)
 
+      const carousel = new Carousel(carouselEl)
       EventHandler.off(carouselEl, Carousel.EVENT_KEY)
-      carousel._touchSupported = false
 
       spyOn(carousel, '_addTouchEventListeners')
 

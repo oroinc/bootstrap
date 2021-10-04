@@ -107,7 +107,6 @@ class Carousel extends BaseComponent {
     this._isSliding = false
     this.touchTimeout = null
     this._swipeHelper = null
-    this._touchSupported = Swipe.isSupported()
 
     this._config = this._getConfig(config)
     this._indicatorsElement = SelectorEngine.findOne(SELECTOR_INDICATORS, this._element)
