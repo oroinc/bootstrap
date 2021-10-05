@@ -58,22 +58,6 @@ const Manipulator = {
 
   getDataAttribute(element, key) {
     return normalizeData(element.getAttribute(`data-bs-${normalizeDataKey(key)}`))
-  },
-
-  offset(element) {
-    const rect = element.getBoundingClientRect()
-
-    return {
-      top: rect.top + window.pageYOffset,
-      left: rect.left + window.pageXOffset
-    }
-  },
-
-  position(element) {
-    return {
-      top: element.offsetTop,
-      left: element.offsetLeft
-    }
   }
 }
 
