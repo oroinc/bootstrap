@@ -1,4 +1,3 @@
-@use "sass:list";
 // Form control focus state
 //
 // Generate a customized focus state and for any input with the specified color,
@@ -11,7 +10,6 @@
 //
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
-@use "sass:math";
 
 @mixin form-control-focus() {
   &:focus {
@@ -96,7 +94,7 @@
 
       @if $enable-validation-icons {
         padding-right: $custom-select-feedback-icon-padding-right;
-        background: $custom-select-background, $icon $custom-select-bg no-repeat list.slash($custom-select-feedback-icon-position, $custom-select-feedback-icon-size);
+        background: $custom-select-background, $icon $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;;
       }
 
       &:focus {
