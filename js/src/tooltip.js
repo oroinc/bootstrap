@@ -269,9 +269,9 @@ class Tooltip {
       const tipId = Util.getUID(this.constructor.NAME)
 
       tip.setAttribute('id', tipId)
-      this.element.setAttribute('aria-describedby', tipId)
 
       this.setContent()
+      this._setAriaDescribedBy(tipId)
 
       if (this.config.animation) {
         $(tip).addClass(ClassName.FADE)
@@ -501,6 +501,10 @@ class Tooltip {
 
   _getAttachment(placement) {
     return AttachmentMap[placement.toUpperCase()]
+  }
+
+  _setAriaDescribedBy(tipId) {
+    this.element.setAttribute('aria-describedby', tipId)
   }
 
   _setListeners() {
