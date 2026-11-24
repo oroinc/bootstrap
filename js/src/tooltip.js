@@ -269,9 +269,9 @@ class Tooltip {
       const tipId = Util.getUID(this.constructor.NAME)
 
       tip.setAttribute('id', tipId)
+      this._setAriaDescribedBy(tipId)
 
       this.setContent()
-      this._setAriaDescribedBy(tipId)
 
       if (this.config.animation) {
         $(tip).addClass(ClassName.FADE)
