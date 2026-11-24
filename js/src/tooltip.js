@@ -360,7 +360,7 @@ class Tooltip {
       }
 
       this._cleanTipClass()
-      this.element.removeAttribute('aria-describedby')
+      this._removeAriaDescribedBy()
       $(this.element).trigger(this.constructor.Event.HIDDEN)
       if (this._popper !== null) {
         this._popper.destroy()
@@ -505,6 +505,10 @@ class Tooltip {
 
   _setAriaDescribedBy(tipId) {
     this.element.setAttribute('aria-describedby', tipId)
+  }
+
+  _removeAriaDescribedBy() {
+    this.element.removeAttribute('aria-describedby')
   }
 
   _setListeners() {
