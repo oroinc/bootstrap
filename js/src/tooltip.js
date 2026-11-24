@@ -269,7 +269,7 @@ class Tooltip {
       const tipId = Util.getUID(this.constructor.NAME)
 
       tip.setAttribute('id', tipId)
-      this.element.setAttribute('aria-describedby', tipId)
+      this._setAriaDescribedBy(tipId)
 
       this.setContent()
 
@@ -360,7 +360,7 @@ class Tooltip {
       }
 
       this._cleanTipClass()
-      this.element.removeAttribute('aria-describedby')
+      this._removeAriaDescribedBy()
       $(this.element).trigger(this.constructor.Event.HIDDEN)
       if (this._popper !== null) {
         this._popper.destroy()
@@ -501,6 +501,14 @@ class Tooltip {
 
   _getAttachment(placement) {
     return AttachmentMap[placement.toUpperCase()]
+  }
+
+  _setAriaDescribedBy(tipId) {
+    this.element.setAttribute('aria-describedby', tipId)
+  }
+
+  _removeAriaDescribedBy() {
+    this.element.removeAttribute('aria-describedby')
   }
 
   _setListeners() {
